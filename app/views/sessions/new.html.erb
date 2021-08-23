@@ -1,0 +1,32 @@
+<section class="section--sm">
+  <div class="container">
+    <h1 class="heading">Login</h1>
+
+    <%= form_with(url: login_path, local: true, class: "generic-container") do |form| %>
+      <div class="flex gap-16 mb-8">
+        <div class="input">
+          <%= form.label :email, class:"content--xs overline"%>
+          <div class="input__container">
+            <%= form.email_field :email, class: "input__content", placeholder: "john@example.com" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex gap-16 mb-8">
+        <div class="input">
+          <%= form.label :password, class:"content--xs overline"%>
+          <div class="input__container">
+            <%= form.password_field :password, class: "input__content", placeholder: "******" %>
+          </div>
+        </div>
+      </div>
+
+      <%= form.submit "Login", class: "btn btn--primary btn--fit-content" %>
+
+    <% end %>
+
+    <div><%= link_to 'Or sign in with Github', github_login_path, method: :post %></div>
+
+    <%= link_to 'Back', root_path %>
+  </div>
+</section>
