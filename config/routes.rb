@@ -29,4 +29,10 @@ Rails.application.routes.draw do
   # Routes for Codeable Design
   get "/design", to: "design#index"
   get "/design/sections", to: "design#sections"
+
+  # Routes for API
+  namespace :api do
+    resources :genres, only: [:index]
+  end
+
 end
