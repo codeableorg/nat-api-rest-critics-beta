@@ -1,0 +1,32 @@
+<%= form_with(model: [critic.criticable, critic], class: "generic-container") do |form| %>
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :title, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.text_field :title, class: "input__content", placeholder: "Critic incoming" %>
+      </div>
+      <% if critic.errors.messages[:title].any? %>
+      <span class="content--sm input__error-message">
+        <%= critic.errors.messages[:title].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex gap-16 mb-8">
+    <div class="input">
+      <%= form.label :body, class:"content--xs overline"%>
+      <div class="input__container">
+        <%= form.text_area :body, class: "input__content", placeholder: "This is my respectful critic" %>
+      </div>
+      <% if critic.errors.messages[:body].any? %>
+      <span class="content--sm input__error-message">
+        <%= critic.errors.messages[:body].join(", ")%>
+      </span>
+      <% end %>
+    </div>
+  </div>
+
+  <%= form.submit class: "btn btn--primary btn--fit-content" %>
+
+<% end %>
