@@ -31,8 +31,9 @@ Rails.application.routes.draw do
   get "/design/sections", to: "design#sections"
 
   # Routes for API
-  namespace :api do
-    resources :genres, only: [:index]
-  end
 
+  # config/routes.rb
+  namespace :api do
+    resources :genres, only: %i[index show create update destroy]
+  end
 end
