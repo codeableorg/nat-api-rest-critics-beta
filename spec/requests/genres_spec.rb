@@ -1,5 +1,6 @@
 require 'rails_helper'
 describe 'Genres', type: :request do
+
   describe 'index path' do
     it 'respond with http success status code' do
       get '/api/genres'
@@ -65,7 +66,6 @@ describe 'Genres', type: :request do
     end
 
     it 'returns HTTP status no content' do
-      #genre = Genre.create(name: 'Test')
       delete api_genre_path(@genre)
       expect(response).to have_http_status(:no_content)
     end

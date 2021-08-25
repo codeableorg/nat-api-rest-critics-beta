@@ -35,5 +35,8 @@ Rails.application.routes.draw do
   # config/routes.rb
   namespace :api do
     resources :genres, only: %i[index show create update destroy]
+    resources :companies, only: %i[index show] do
+      resources :critics, only: %i[create update destroy]
+    end
   end
 end
